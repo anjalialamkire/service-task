@@ -1,0 +1,35 @@
+
+
+<h3 class="alert alert-info">Todo1</h3>
+<div class="card bg-info">
+  <h3 class="font-weight-bold text-center">
+    {{ isinEditMode ? 'Update Todo' : 'Add Todo' }}
+  </h3>
+
+  <div class="card-body">
+    <form #todoForm="ngForm" (ngSubmit)="isinEditMode ? onUpdateTodo() : onTodoAdd()">
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="todoItem"
+          placeholder="Enter Todo Name"
+          name="todoItem"
+          ngModel
+          required
+        />
+      </div>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn btn-block"
+        [disabled]="todoForm.invalid"
+        type="submit">
+        {{ isinEditMode ? 'Update Todo' : 'Add Todo' }}
+      </button>
+
+    </form>
+  </div>
+</div>
